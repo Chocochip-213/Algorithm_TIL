@@ -1,6 +1,9 @@
 #####main.py
 import sys
+import time
 from solution import init, addKeyword, top5Keyword
+st = time.time()
+
 
 CMD_INIT = 100
 CMD_ADD = 200
@@ -41,3 +44,5 @@ T, MARK = map(int, input().split())
 for tc in range(1, T + 1):
     score = MARK if run1() else 0
     print("#%d %d" % (tc, score), flush = True)
+
+print(time.time()-st)
