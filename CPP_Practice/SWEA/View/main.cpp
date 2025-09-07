@@ -19,7 +19,7 @@ int main(int argc, char** argv)
 	{
 		int N;
 		int sum = 0;
-		bool break_flag = false;
+		bool break_flag;
 		cin >> N;
 		vector<int> building(N);
 		// 전체 환경 생성
@@ -28,6 +28,7 @@ int main(int argc, char** argv)
 		}
 		for(int j = 2; j < N-2; j++){
 			int buffer = 256;
+			break_flag = false;
 			for(int k = 0; k < 4; k++){
 				int height = building[j] - building[j+chkLeftRight[k]];
 				if(height > 0){
@@ -40,10 +41,7 @@ int main(int argc, char** argv)
 					break;
 				}
 			}
-			if(break_flag){
-				break_flag = false;
-			}
-			else{
+			if(!break_flag){
 				sum += buffer;
 			}	
 
